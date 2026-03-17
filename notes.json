@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1710000000001,
+    "author": "Carlos",
+    "message": "Excelente portfolio, muy buen trabajo!",
+    "date": "17/3/2026",
+    "color": "#ffd700",
+    "rotation": -2
+  },
+  {
+    "id": 1710000000002,
+    "author": "Laura",
+    "message": "Me encanta el diseño, muy creativo y profesional.",
+    "date": "17/3/2026",
+    "color": "#81ecec",
+    "rotation": 1
+  }
+]
