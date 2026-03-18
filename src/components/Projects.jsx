@@ -4,6 +4,8 @@ import { Gamepad2, MessageSquareMore, Smartphone, Heart, HeartHandshake, Globe, 
 const BUBBLE_SIZE = 150
 const SPEED = 1.2
 
+// Datos de proyectos (icono, título, descripción, colores)
+
 const PROJECTS = [
   {
     id: 'unity-game',
@@ -69,6 +71,7 @@ function Projects() {
   const stateRef    = useRef([])
   const frameRef    = useRef(null)
 
+  // El efecto de movimiento y colisión se maneja con un useEffect que actualiza la posición de cada burbuja en cada frame usando requestAnimationFrame. Las burbujas rebotan entre sí y contra las paredes del contenedor. Al hacer hover, se pausa el movimiento y se aplica un efecto de tilt basado en la posición del mouse.
   useEffect(() => {
     const container = containerRef.current
     if (!container) return
@@ -89,7 +92,8 @@ function Projects() {
 
     const RADIUS = BUBBLE_SIZE / 2
     const DIAMETER = BUBBLE_SIZE
-
+    
+    // Función de animación que actualiza la posición de las burbujas, maneja colisiones y rebotes
     const animate = () => {
       const w = container.clientWidth
       const h = container.clientHeight
