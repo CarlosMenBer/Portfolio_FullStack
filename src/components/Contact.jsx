@@ -72,7 +72,7 @@ function Contact() {
             <div className="contact__info-icon"><Linkedin size={18} strokeWidth={1.8} /></div>
             <div className="contact__info-text">
               <h3>LinkedIn</h3>
-              <a href="www.linkedin.com/in/carlos-mendoza-bernal-82817428b" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/carlos-mendoza-bernal-82817428b" target="_blank" rel="noopener noreferrer">
                 linkedin.com/in/carlos-mendoza-bernal
               </a>
             </div>
