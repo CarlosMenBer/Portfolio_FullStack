@@ -3,6 +3,9 @@ const skills = [
   'HTML & CSS', 'Git', 'SQL', 'TypeScript'
 ]
 
+// ── MÓDULO DE SOBRE MÍ ───────────────────────────────────────────────
+// Sección de presentación con foto, descripción y habilidades destacadas
+
 function About() {
   return (
     <section id="sobre-mi" className="about">

@@ -5,12 +5,17 @@ import Forum from './components/Forum'
 import Profile from './components/Profile'
 import Contact from './components/Contact'
 import SocialLinks from './components/SocialLinks'
+import Projects from './components/Projects'
 import FireBackground from './components/FireBackground'
 import Spotlight from './components/Spotlight'
 import './App.css'
 
-const PAGES = { welcome: Welcome, forum: Forum, profile: Profile, contact: Contact, social: SocialLinks }
+// Módulo principal de la aplicación, maneja la navegación entre secciones y el fondo animado
 
+const PAGES = { welcome: Welcome, projects: Projects, forum: Forum, profile: Profile, contact: Contact, social: SocialLinks }
+
+
+// Datos de proyectos (icono, título, descripción, colores)
 function App() {
   const [page, setPage] = useState('welcome')
   const [animKey, setAnimKey] = useState(0)

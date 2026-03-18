@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 
+// Componente para mostrar cada nota individualmente
 function NoteCard({ note }) {
   return (
     <div
@@ -18,6 +19,9 @@ function NoteCard({ note }) {
     </div>
   )
 }
+
+// ── MÓDULO DE NOTAS ───────────────────────────────────────────────
+// Página con formulario para dejar notas y listado de notas existentes
 
 function Notes() {
   const [notes, setNotes] = useState([])

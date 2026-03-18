@@ -1,13 +1,17 @@
 import { useState } from 'react'
-import { House, ClipboardList, User, Mail, Share2, Menu, X, Flame } from 'lucide-react'
+import { House, ClipboardList, User, Mail, Share2, FolderGit2, Menu, X, Flame } from 'lucide-react'
 
 const NAV_ITEMS = [
-  { id: 'welcome',  label: 'Inicio',   Icon: House },
-  { id: 'forum',    label: 'Tablón',   Icon: ClipboardList },
-  { id: 'profile',  label: 'Perfil',   Icon: User },
-  { id: 'contact',  label: 'Contacto', Icon: Mail },
-  { id: 'social',   label: 'Redes',    Icon: Share2 },
+  { id: 'welcome',  label: 'Inicio',    Icon: House },
+  { id: 'projects', label: 'Proyectos', Icon: FolderGit2 },
+  { id: 'forum',    label: 'Tablón',    Icon: ClipboardList },
+  { id: 'profile',  label: 'Perfil',    Icon: User },
+  { id: 'contact',  label: 'Contacto',  Icon: Mail },
+  { id: 'social',   label: 'Redes',     Icon: Share2 },
 ]
+
+// ── MÓDULO DE NAVEGACIÓN ───────────────────────────────────────────────
+// Barra de navegación superior con enlaces a secciones y menú lateral para móvil
 
 function Navbar({ page, navigate }) {
   const [open, setOpen] = useState(false)

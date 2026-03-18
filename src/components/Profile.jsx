@@ -5,6 +5,9 @@ const skills = [
   'COBOL', 'MySQL', 'MongoDB', 'MariaDB', 'Git',
 ]
 
+// ── MÓDULO DE PERFIL ───────────────────────────────────────────────
+// Página de perfil con foto, descripción, habilidades y botones de acción
+
 function Profile({ navigate }) {
   return (
     <section className="profile">

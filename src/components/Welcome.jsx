@@ -1,9 +1,12 @@
 import { useRef } from 'react'
-import { ClipboardList, User, Mail, Share2 } from 'lucide-react'
+import { ClipboardList, User, Mail, Share2, FolderGit2 } from 'lucide-react'
+
+// Componente para texto con efecto brillante (usado en el rol del welcome)
 
 function ShinyText({ children, className = '' }) {
   return <span className={`shiny-text ${className}`}>{children}</span>
 }
+// Módulos del welcome
 
 function TiltBubble({ mod, onClick }) {
   const ref = useRef(null)
@@ -41,12 +44,19 @@ function TiltBubble({ mod, onClick }) {
   )
 }
 
+// Módulos del welcome
+
 const MODULES = [
-  { id: 'forum',   Icon: ClipboardList, title: 'Tablón',   subtitle: 'Deja tu mensaje', color: '#e8650a', glow: 'rgba(232,101,10,0.55)', delay: '0s' },
-  { id: 'profile', Icon: User,          title: 'Perfil',   subtitle: 'Sobre mí & CV',   color: '#d4541a', glow: 'rgba(212,84,26,0.5)',   delay: '0.4s' },
-  { id: 'contact', Icon: Mail,          title: 'Contacto', subtitle: 'Escríbeme',        color: '#c4830a', glow: 'rgba(196,131,10,0.5)',  delay: '0.8s' },
-  { id: 'social',  Icon: Share2,        title: 'Redes',    subtitle: 'Sígueme',          color: '#0a85d1', glow: 'rgba(10,133,209,0.5)',  delay: '1.2s' },
+  { id: 'forum',    Icon: ClipboardList, title: 'Tablón',    subtitle: 'Deja tu mensaje', color: '#e8650a', glow: 'rgba(232,101,10,0.55)', delay: '0s'   },
+  { id: 'projects', Icon: FolderGit2,    title: 'Proyectos', subtitle: 'Mis repositorios', color: '#9a4dff', glow: 'rgba(154,77,255,0.5)',  delay: '0.4s' },
+  { id: 'profile',  Icon: User,          title: 'Perfil',    subtitle: 'Sobre mí & CV',   color: '#d4541a', glow: 'rgba(212,84,26,0.5)',   delay: '0.8s' },
+  { id: 'contact',  Icon: Mail,          title: 'Contacto',  subtitle: 'Escríbeme',        color: '#c4830a', glow: 'rgba(196,131,10,0.5)',  delay: '1.2s' },
+  { id: 'social',   Icon: Share2,        title: 'Redes',     subtitle: 'Sígueme',          color: '#0a85d1', glow: 'rgba(10,133,209,0.5)',  delay: '1.6s' },
 ]
+
+
+// ── MÓDULO DE BIENVENIDA ────────────────────────────────────────────────
+// Página de bienvenida con foto, rol y navegación a los módulos
 
 function Welcome({ navigate }) {
   return (

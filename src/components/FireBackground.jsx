@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 
+
+// componentes extraidos de paginas externas con diferantes efectos visuales, para no sobrecargar el codigo de las paginas principales y mantenerlos organizados en un modulo aparte
 /* ═══════════════════════════════════════════════════════════════
    StarsBackground — canvas con estrellas parpadeantes
    Aceternity UI: shooting-stars-and-stars-background

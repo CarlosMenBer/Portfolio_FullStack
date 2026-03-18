@@ -8,6 +8,12 @@ const COLORS = [
   '#e8650a','#d4541a','#c4830a','#b05020',
   '#9a7a40','#8a6030','#c06040','#a05030',
 ]
+
+// ══════════════════════════════════════════════════════════════════════
+//  FORO — cualquiera puede crear posts y comentar/responder
+// ══════════════════════════════════════════════════════════════════════
+//idea de la ia integrar colores aleatorios a cada post/comentario, y un avatar circular con la inicial del autor (sin usar imágenes, solo CSS)
+
 function randomColor() { return COLORS[Math.floor(Math.random() * COLORS.length)] }
 function avatar(name) { return name.trim().charAt(0).toUpperCase() }
 
@@ -22,6 +28,8 @@ function insertReply(comments, parentId, newReply) {
     return c
   })
 }
+
+// Componente para mostrar cada comentario y su formulario de respuesta (recursivo para subcomentarios)
 
 function CommentItem({ comment, depth = 0, postId, onReplyAdded }) {
   const [showReply, setShowReply] = useState(false)
@@ -110,6 +118,8 @@ function CommentItem({ comment, depth = 0, postId, onReplyAdded }) {
     </div>
   )
 }
+
+// Componente para mostrar cada post con sus comentarios y formulario de respuesta
 
 function PostCard({ post, onCommentAdded, onReplyAdded }) {
   const [expanded, setExpanded] = useState(false)
@@ -201,6 +211,8 @@ function PostCard({ post, onCommentAdded, onReplyAdded }) {
     </article>
   )
 }
+
+// Función auxiliar para insertar una respuesta en el árbol de comentarios
 
 function Forum() {
   const [posts, setPosts] = useState([])

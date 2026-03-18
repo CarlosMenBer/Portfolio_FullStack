@@ -3,6 +3,10 @@ import { Mail, Linkedin, Github, Send, Clock, User, FileText, CheckCircle, Alert
 
 const EMAIL = 'carlosmendozabernal14@gmail.com'
 
+
+// Datos de habilidades (icono, nombre, colores)
+
+
 function Contact() {
   const [name,    setName]    = useState('')
   const [subject, setSubject] = useState('')

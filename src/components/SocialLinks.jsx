@@ -40,6 +40,7 @@ function TiltBubble({ mod }) {
   )
 }
 
+// ── DATOS DE REDES SOCIALES ─────────────────────────────────────────
 const SOCIALS = [
   {
     id: 'github',
@@ -56,7 +57,7 @@ const SOCIALS = [
     Icon: Linkedin,
     title: 'LinkedIn',
     handle: 'Carlos Mendoza Bernal',
-    url: 'www.linkedin.com/in/carlos-mendoza-bernal-82817428b',
+    url: 'https://www.linkedin.com/in/carlos-mendoza-bernal-82817428b',
     color: '#0a85d1',
     glow: 'rgba(10,133,209,0.5)',
     delay: '0.3s',
@@ -66,7 +67,7 @@ const SOCIALS = [
   //   Icon: Send,
   //   title: 'Telegram',
   //   handle: '@tu-usuario',
-  //   url: 'https://t.me/tu-usuario',
+  //   url: '',
   //   color: '#2AABEE',
   //   glow: 'rgba(42,171,238,0.5)',
   //   delay: '0.6s',
@@ -82,6 +83,8 @@ const SOCIALS = [
     delay: '0.9s',
   },
 ]
+
+// ── MÓDULO DE REDES SOCIALES ─────────────────────────────────────────
 
 function SocialLinks() {
   return (
