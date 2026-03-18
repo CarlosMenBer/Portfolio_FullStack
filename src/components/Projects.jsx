@@ -87,22 +87,53 @@ function Projects() {
       }
     })
 
+    const RADIUS = BUBBLE_SIZE / 2
+    const DIAMETER = BUBBLE_SIZE
+
     const animate = () => {
       const w = container.clientWidth
       const h = container.clientHeight
+      const bs = stateRef.current
 
-      stateRef.current.forEach((s, i) => {
+      // Mover y rebotar en paredes
+      bs.forEach(s => {
         if (s.paused) return
-
         s.x += s.vx
         s.y += s.vy
-
-        if (s.x <= 0)                    { s.vx =  Math.abs(s.vx); s.x = 0 }
+        if (s.x <= 0)              { s.vx =  Math.abs(s.vx); s.x = 0 }
         else if (s.x >= w - BUBBLE_SIZE) { s.vx = -Math.abs(s.vx); s.x = w - BUBBLE_SIZE }
-
-        if (s.y <= 0)                    { s.vy =  Math.abs(s.vy); s.y = 0 }
+        if (s.y <= 0)              { s.vy =  Math.abs(s.vy); s.y = 0 }
         else if (s.y >= h - BUBBLE_SIZE) { s.vy = -Math.abs(s.vy); s.y = h - BUBBLE_SIZE }
+      })
 
+      // Colisión entre burbujas (colisión elástica de masas iguales)
+      for (let i = 0; i < bs.length; i++) {
+        for (let j = i + 1; j < bs.length; j++) {
+          const a = bs[i], b = bs[j]
+          const dx = (b.x + RADIUS) - (a.x + RADIUS)
+          const dy = (b.y + RADIUS) - (a.y + RADIUS)
+          const dist = Math.sqrt(dx * dx + dy * dy)
+          if (dist === 0 || dist >= DIAMETER) continue
+
+          // Separar burbujas solapadas
+          const overlap = (DIAMETER - dist) / 2
+          const nx = dx / dist
+          const ny = dy / dist
+          if (!a.paused) { a.x -= nx * overlap; a.y -= ny * overlap }
+          if (!b.paused) { b.x += nx * overlap; b.y += ny * overlap }
+
+          // Intercambiar componente de velocidad a lo largo de la normal
+          const dvx = b.vx - a.vx
+          const dvy = b.vy - a.vy
+          const dot = dvx * nx + dvy * ny
+          if (dot >= 0) continue // ya se separan, no colisionar
+          if (!a.paused) { a.vx += dot * nx; a.vy += dot * ny }
+          if (!b.paused) { b.vx -= dot * nx; b.vy -= dot * ny }
+        }
+      }
+
+      // Actualizar posición en el DOM
+      bs.forEach((s, i) => {
         const el = bubbleRefs.current[i]
         if (el) el.style.transform = `translate(${s.x}px, ${s.y}px)`
       })
