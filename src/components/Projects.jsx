@@ -1,16 +1,15 @@
 import { useEffect, useRef } from 'react'
-import { Gamepad2, MessageSquareMore, Smartphone, Heart } from 'lucide-react'
+import { Gamepad2, MessageSquareMore, Smartphone, Heart, HeartHandshake, Globe, Leaf } from 'lucide-react'
 
 const BUBBLE_SIZE = 150
 const SPEED = 1.2
 
-// Datos de proyectos (icono, título, descripción, URL, colores)
 const PROJECTS = [
   {
     id: 'unity-game',
     Icon: Gamepad2,
-    title: 'Juego Unity',
-    description: 'Videojuego con Unity',
+    title: 'Unity Game',
+    description: 'DnD roguelike con Unity',
     url: 'https://github.com/CarlosMenBer/Unity-Game',
     color: '#9a4dff',
     glow: 'rgba(154,77,255,0.5)',
@@ -19,7 +18,7 @@ const PROJECTS = [
     id: 'live-chat',
     Icon: MessageSquareMore,
     title: 'Live Chat',
-    description: 'Java & Spring Boot',
+    description: 'Chat en tiempo real con Java',
     url: 'https://github.com/CarlosMenBer/Live-Chat',
     color: '#e8650a',
     glow: 'rgba(232,101,10,0.55)',
@@ -28,10 +27,28 @@ const PROJECTS = [
     id: 'android-app',
     Icon: Smartphone,
     title: 'App Android',
-    description: 'Aplicación móvil',
+    description: 'Pokémon API + Firebase',
     url: 'https://github.com/CarlosMenBer/App-Android-',
     color: '#3ddc84',
     glow: 'rgba(61,220,132,0.5)',
+  },
+  {
+    id: 'java-spring',
+    Icon: Leaf,
+    title: 'Java Spring',
+    description: 'Ejercicio Java Spring',
+    url: 'https://github.com/CarlosMenBer/Java-Spring',
+    color: '#6db33f',
+    glow: 'rgba(109,179,63,0.5)',
+  },
+  {
+    id: 'react-portfolio',
+    Icon: Globe,
+    title: 'React Portfolio',
+    description: 'Portfolio con API del tiempo',
+    url: 'https://github.com/CarlosMenBer/React-Portfolio',
+    color: '#61dafb',
+    glow: 'rgba(97,218,251,0.5)',
   },
   {
     id: 'san-valentin',
@@ -41,7 +58,7 @@ const PROJECTS = [
     url: 'https://github.com/CarlosMenBer/San-Valentin',
     color: '#ff4d6d',
     glow: 'rgba(255,77,109,0.5)',
-  },
+  }
 ]
 
 // Componente para cada burbuja de proyecto
