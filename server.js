@@ -7,7 +7,7 @@ const fs      = require('fs')
 const path    = require('path')
 
 const app  = express()
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 
 const NOTES_FILE = path.join(__dirname, 'notes.json')
 const FORUM_FILE = path.join(__dirname, 'forum.json')
@@ -170,6 +170,12 @@ app.delete('/api/forum/:postId/comment/:commentId', (req, res) => {
     writeJSON(FORUM_FILE, posts)
     res.json({ ok: true })
   } catch { res.status(500).json({ error: 'Error al eliminar el comentario' }) }
+})
+
+// Servir el frontend en producción
+app.use(express.static(path.join(__dirname, 'dist')))
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'))
 })
 
 app.listen(PORT, () => {
